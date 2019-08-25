@@ -19,10 +19,11 @@ string = STDIN.gets.chomp
 puts 'Каким способом шифровать:'
 puts '1. MD5'
 puts '2. SHA1'
+puts '3. SHA2'
 encrypt_method = STDIN.gets.to_i
 
-until encrypt_method.between?(1,2)
-  puts 'Выберите метод 1 или 2'
+until encrypt_method.between?(1,3)
+  puts 'Выберите метод 1, 2 или 3'
   encrypt_method = STDIN.gets.to_i
 end
 puts 'Вот что получилось:'
@@ -32,4 +33,6 @@ when 1
   puts Digest::MD5.hexdigest(string)
 when 2
   puts Digest::SHA1.hexdigest(string)
+when 3
+  puts Digest::SHA2.hexdigest(string)
 end
